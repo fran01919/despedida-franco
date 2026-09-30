@@ -233,12 +233,6 @@ body.bloqueado { overflow: hidden; }
   transition: transform .15s ease, box-shadow .15s ease;
 }
 .nombre:hover { transform: translateY(-3px); box-shadow: 0 12px 22px rgba(0, 0, 0, .35); }
-.nombres li.doble { grid-column: span 2; }
-.nombres li.doble .nombre span { white-space: nowrap; }
-@media (max-width: 340px) {
-  .nombres li.doble { grid-column: span 1; }
-  .nombres li.doble .nombre span { white-space: normal; }
-}
 .nombre .marca {
   position: absolute;
   right: 8px;

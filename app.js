@@ -50,7 +50,6 @@
 
   mensajes.forEach((m, i) => {
     const li = document.createElement("li");
-    if (m.doble) li.classList.add("doble"); // tarjeta más ancha: el nombre cabe en una línea
     const b = document.createElement("button");
     b.type = "button";
     b.className = "nombre";
@@ -146,33 +145,21 @@
   let indiceCancion = 0;
   let fallos = 0;
 
-  const aleatorio = cfgMusica.modo === "aleatorio"; // "orden" (por defecto) o "aleatorio"
-
   function cargarCancion(i) {
     indiceCancion = i % canciones.length;
     musica.src = canciones[indiceCancion];
   }
-  function elegirSiguiente() {
-    if (canciones.length <= 1) return 0;
-    if (!aleatorio) return indiceCancion + 1;
-    let n;
-    do { n = Math.floor(Math.random() * canciones.length); } while (n === indiceCancion);
-    return n;
-  }
   function siguienteCancion() {
-    cargarCancion(elegirSiguiente());
+    cargarCancion(indiceCancion + 1);
     musica.play().catch(() => {});
   }
   if (canciones.length) {
-    cargarCancion(aleatorio ? Math.floor(Math.random() * canciones.length) : 0);
+    cargarCancion(0);
     musica.addEventListener("playing", () => { fallos = 0; });
-    musica.addEventListener("ended", siguienteCancion); // al terminar la última, vuelve a empezar
+    musica.addEventListener("ended", siguienteCancion);
     musica.addEventListener("error", () => {
       fallos += 1;
-      if (fallos < canciones.length) {
-        cargarCancion(indiceCancion + 1); // salta canciones que no existan
-        musica.play().catch(() => {});
-      }
+      if (fallos < canciones.length) siguienteCancion(); // salta canciones que no existan
     });
   }
 
