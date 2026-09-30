@@ -1,0 +1,60 @@
+{
+  "textos": {
+    "tituloPagina": "Gracias, Franco",
+    "portadaLinea1": "Gracias,",
+    "portadaLinea2": "Franco",
+    "portadaTexto": "Hoy es tu último día siendo un Prolog y tus compañeros del BCRP te dejaron un mensaje.",
+    "portadaAviso": "Sube el volumen: esta tarjeta tiene música.",
+    "portadaBoton": "Abrir tarjeta",
+    "cabeceraTitulo": "Gracias, Franco",
+    "cabeceraSubtitulo": "Toca un nombre para leer su mensaje.",
+    "contador": "Leíste {leidos} de {total} mensajes",
+    "finalBloqueado": "Te faltan {faltan} mensajes para el último saludo",
+    "finalBoton": "Toca aquí para el último saludo",
+    "finalPie": "Con cariño, tu equipo del BCRP",
+    "finalRepetir": "Volver a escuchar",
+    "finalVolver": "Volver a la tarjeta"
+  },
+  "tema": {
+    "noche": "#0f2a52",
+    "noche-2": "#0a1d3b",
+    "celeste": "#75aadb",
+    "celeste-claro": "#cfe4f6",
+    "sol": "#f6b40e",
+    "river": "#d8112a",
+    "papel": "#fbf8f1",
+    "tinta": "#0f2a52"
+  },
+  "musica": {
+    "canciones": [
+      "cancion-1.mp3",
+      "cancion-2.mp3",
+      "cancion-3.mp3"
+    ],
+    "modo": "orden",
+    "volumen": 0.5
+  },
+  "lluvia": {
+    "cantidad": 20,
+    "imagenes": [
+      {
+        "src": "bandera-argentina.svg",
+        "ancho": 64
+      },
+      {
+        "src": "escudo-river.png",
+        "ancho": 52
+      },
+      {
+        "src": "logo-bcrp.png",
+        "ancho": 70,
+        "ficha": true
+      }
+    ]
+  },
+  "final": {
+    "audio": "saludo-final.mp3",
+    "foto": "foto-banco.jpg",
+    "desbloquearAlLeerTodos": true
+  }
+}

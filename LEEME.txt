@@ -1,0 +1,17 @@
+Todos los archivos van en el MISMO nivel (sin carpetas). Agrega estos con los nombres exactos:
+
+  cancion-1.mp3       La cuarta estrella de Argentina
+  cancion-2.mp3       Arráncamelo de vos
+  cancion-3.mp3       Cuando nos volvamos a encontrar
+  saludo-final.mp3    Audio del último saludo
+  logo-bcrp.png       Logo del BCRP (cae como lluvia, sobre una ficha blanca)
+  escudo-river.png    Escudo de River (cae como lluvia)
+  foto-banco.jpg      Foto de ustedes en el banco (aparece en el último saludo)
+
+La bandera de Argentina ya viene incluida (bandera-argentina.svg).
+
+Las tres canciones suenan una tras otra y, al terminar la última, vuelven a empezar.
+Para orden aleatorio, en config.json cambia  "modo": "orden"  por  "modo": "aleatorio".
+
+Si cambias un nombre de archivo, cámbialo también en config.json.
+Cada archivo debe pesar menos de 25 MB si lo subes desde la web de GitHub.

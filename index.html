@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f2a52">
+  <title>Gracias, Franco</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Estrella reutilizable -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="estrella" viewBox="0 0 24 24">
+      <path d="M12 1.8l3 6.9 7.5.7-5.7 5 1.7 7.4L12 17.8l-6.5 4 1.7-7.4-5.7-5 7.5-.7z"/>
+    </symbol>
+  </svg>
+
+  <!-- Lluvia de banderas y logos (detrás de todo) -->
+  <div id="lluvia" aria-hidden="true"></div>
+
+  <!-- Portada -->
+  <section id="portada" class="portada" aria-labelledby="portada-titulo">
+    <div class="estrellas" aria-hidden="true">
+      <svg class="estrella"><use href="#estrella"/></svg>
+      <svg class="estrella"><use href="#estrella"/></svg>
+      <svg class="estrella"><use href="#estrella"/></svg>
+      <svg class="estrella cuarta"><use href="#estrella"/></svg>
+    </div>
+    <h1 id="portada-titulo" class="titulo-bandera grande">
+      <span id="portada-l1">Gracias,</span>
+      <span id="portada-l2">Franco</span>
+    </h1>
+    <p id="portada-texto" class="portada-texto">Hoy es tu último día siendo un Prolog y tus compañeros del BCRP te dejaron un mensaje.</p>
+    <button id="abrir" class="btn-final" type="button">Abrir tarjeta</button>
+    <p id="portada-aviso" class="aviso">Sube el volumen: esta tarjeta tiene música.</p>
+    <p id="error-carga" class="aviso error" hidden></p>
+  </section>
+
+  <!-- Tarjeta -->
+  <main id="tarjeta" class="tarjeta" hidden>
+    <header class="cabecera">
+      <div class="estrellas chicas" aria-hidden="true">
+        <svg class="estrella"><use href="#estrella"/></svg>
+        <svg class="estrella"><use href="#estrella"/></svg>
+        <svg class="estrella"><use href="#estrella"/></svg>
+        <svg class="estrella cuarta encendida"><use href="#estrella"/></svg>
+      </div>
+      <h1 id="cabecera-titulo" class="titulo-bandera">Gracias, Franco</h1>
+      <p id="cabecera-subtitulo" class="subtitulo">Toca un nombre para leer su mensaje.</p>
+      <p id="contador" class="contador" aria-live="polite"></p>
+    </header>
+
+    <ul id="lista" class="nombres"></ul>
+
+    <section class="final-bloque">
+      <button id="btn-final" class="btn-final" type="button" disabled>Toca aquí para el último saludo</button>
+      <p id="pista-final" class="aviso" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <!-- Mensaje de cada persona -->
+  <dialog id="mensaje" class="mensaje" aria-labelledby="mensaje-firma">
+    <div class="banda" aria-hidden="true"></div>
+    <div class="cuerpo">
+      <p id="mensaje-texto" class="texto"></p>
+      <p id="mensaje-firma" class="firma"></p>
+    </div>
+    <div class="pie">
+      <button id="anterior" class="btn" type="button" aria-label="Mensaje anterior">‹ Anterior</button>
+      <button id="cerrar" class="btn primario" type="button">Cerrar</button>
+      <button id="siguiente" class="btn" type="button" aria-label="Mensaje siguiente">Siguiente ›</button>
+    </div>
+  </dialog>
+
+  <!-- Último saludo -->
+  <div id="final" class="final" hidden role="dialog" aria-modal="true" aria-label="Último saludo">
+    <div class="estrellas" aria-hidden="true">
+      <svg class="estrella"><use href="#estrella"/></svg>
+      <svg class="estrella"><use href="#estrella"/></svg>
+      <svg class="estrella"><use href="#estrella"/></svg>
+      <svg class="estrella cuarta encendida"><use href="#estrella"/></svg>
+    </div>
+    <figure id="polaroid" class="polaroid">
+      <span class="cinta" aria-hidden="true"></span>
+      <img id="foto" alt="Foto del equipo en el banco">
+      <figcaption id="final-pie">Con cariño, tu equipo del BCRP</figcaption>
+    </figure>
+    <div id="ecualizador" class="ecualizador" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="final-botones">
+      <button id="repetir" class="btn" type="button">Volver a escuchar</button>
+      <button id="volver" class="btn primario" type="button">Volver a la tarjeta</button>
+    </div>
+  </div>
+
+  <!-- Música de fondo -->
+  <button id="sonido" class="sonido" type="button" aria-pressed="false" aria-label="Silenciar música" hidden>
+    <svg class="on" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+    <svg class="off" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="m22 9-6 6"/><path d="m16 9 6 6"/></svg>
+  </button>
+
+  <script src="app.js"></script>
+</body>
+</html>
